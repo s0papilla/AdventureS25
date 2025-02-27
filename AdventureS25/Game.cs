@@ -4,18 +4,22 @@ public static class Game
 {
     public static void PlayGame()
     {
+        Map.Initialize();
+        
         bool isPlaying = true;
         
         while (isPlaying == true)
         {
-            CommandProcessor.Process();
-
-            string input = "exit";
+            Command command = CommandProcessor.Process();
             
-            if (input == "exit")
+            if (command.Verb == "exit")
             {
                 Console.WriteLine("Game Over!");
                 isPlaying = false;
+            }
+            else
+            {
+                CommandHandler.Handle(command);
             }
         }
     }
