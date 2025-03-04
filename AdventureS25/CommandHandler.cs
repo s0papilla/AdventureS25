@@ -21,6 +21,6 @@ public static class CommandHandler
 
     public static void Move(Command command)
     {
-        Console.WriteLine("Moving..." + command.Noun);
+        Player.Move(command);
     }
 }

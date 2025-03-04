@@ -5,6 +5,9 @@ public static class Game
     public static void PlayGame()
     {
         Map.Initialize();
+        Player.Initialize();
+        
+        Console.WriteLine(Player.GetLocationDescription());
         
         bool isPlaying = true;
         

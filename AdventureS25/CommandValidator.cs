@@ -11,7 +11,10 @@ public static class CommandValidator
         {"exit", "inventory", "look"};
     
     public static List<string> Nouns = new List<string>
-        {"bagel", "apple", "beer"};
+    {
+        "bagel", "apple", "beer", "east", "west", "north", "south",
+        "up", "down"
+    };
     
     public static bool IsValid(Command command)
     {
