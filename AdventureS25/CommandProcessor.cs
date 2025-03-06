@@ -10,14 +10,15 @@ public static class CommandProcessor
         // make sure two words
         Command command = Parser.Parse(rawInput);
 
-        Console.WriteLine("Verb: [" + command.Verb + "]");
-        Console.WriteLine("Noun: [" + command.Noun + "]");
+        Debugger.Write("Verb: [" + command.Verb + "]");
+        Debugger.Write("Noun: [" + command.Noun + "]");
         
         // make sure we have the words in our vocabulary
         bool isValid = CommandValidator.IsValid(command);
+        command.IsValid = isValid;
 
         // do stuff with the command
-        Console.WriteLine("isValid = " + isValid);
+        Debugger.Write("isValid = " + isValid);
 
         return command;
     }

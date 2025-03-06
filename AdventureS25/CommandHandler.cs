@@ -2,16 +2,36 @@
 
 public static class CommandHandler
 {
+    private static Dictionary<string, Action<Command>> commandMap =
+        new Dictionary<string, Action<Command>>()
+        {
+            {"eat", Eat},
+            {"go", Move},
+            {"tron", Tron},
+            {"troff", Troff},
+        };
+    
     public static void Handle(Command command)
     {
-        if (command.Verb == "eat")
+        if (commandMap.ContainsKey(command.Verb))
         {
-            Eat(command);
+            Action<Command> method = commandMap[command.Verb];
+            method.Invoke(command);
         }
-        else if (command.Verb == "go")
+        else
         {
-            Move(command);
+            Console.WriteLine("I don't know ho to do that.");
         }
+    }
+
+    private static void Troff(Command command)
+    {
+        Debugger.Troff();
+    }
+
+    private static void Tron(Command command)
+    {
+        Debugger.Tron();
     }
 
     public static void Eat(Command command)

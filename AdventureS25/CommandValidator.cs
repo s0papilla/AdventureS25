@@ -8,7 +8,7 @@ public static class CommandValidator
         {"go", "eat"};
     
     public static List<string> StandaloneVerbs = new List<string>
-        {"exit", "inventory", "look"};
+        {"exit", "inventory", "look", "tron", "troff"};
     
     public static List<string> Nouns = new List<string>
     {
@@ -20,21 +20,50 @@ public static class CommandValidator
     {
         bool isValid = false;
         
-        if (IsVerb(command.Verb) || IsStandaloneVerb(command.Verb))
+        if (IsVerb(command.Verb))
         {
+            Debugger.Write("Valid verb: " + command.Verb);
+            
             if (IsStandaloneVerb(command.Verb))
             {
-                isValid = true;
+                Debugger.Write("Valid standalone verb: " + command.Verb);
+
+                if (HasNoNoun(command))
+                {
+                    isValid = true;
+                }
+                else
+                {
+                    Console.WriteLine("I don't know how to do that.");
+                }
             }
             else if (IsNoun(command.Noun))
             {
+                Debugger.Write("Valid Noun: " + command.Noun);
                 isValid = true;
             }
+            else
+            {
+                Console.WriteLine("I don't know how to do that.");
+            }
+        }
+        else
+        {
+            Console.WriteLine("I don't know the word " + command.Verb + ".");
         }
             
         return isValid;
     }
-    
+
+    private static bool HasNoNoun(Command command)
+    {
+        if (command.Noun == String.Empty)
+        {
+            return true;
+        }
+        return false;
+    }
+
     private static bool IsNoun(string commandNoun)
     {
         if (Nouns.Contains(commandNoun))
@@ -55,7 +84,7 @@ public static class CommandValidator
 
     private static bool IsVerb(string commandVerb)
     {
-        if (Verbs.Contains(commandVerb))
+        if (Verbs.Contains(commandVerb) || StandaloneVerbs.Contains(commandVerb))
         {
             return true;
         }

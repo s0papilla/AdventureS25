@@ -15,14 +15,17 @@ public static class Game
         {
             Command command = CommandProcessor.Process();
             
-            if (command.Verb == "exit")
+            if (command.IsValid)
             {
-                Console.WriteLine("Game Over!");
-                isPlaying = false;
-            }
-            else
-            {
-                CommandHandler.Handle(command);
+                if (command.Verb == "exit")
+                {
+                    Console.WriteLine("Game Over!");
+                    isPlaying = false;
+                }
+                else
+                {
+                    CommandHandler.Handle(command);
+                }
             }
         }
     }
