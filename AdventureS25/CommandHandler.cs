@@ -20,7 +20,7 @@ public static class CommandHandler
         }
         else
         {
-            Console.WriteLine("I don't know ho to do that.");
+            Console.WriteLine("I don't know how to do that.");
         }
     }
 

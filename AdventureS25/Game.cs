@@ -4,9 +4,8 @@ public static class Game
 {
     public static void PlayGame()
     {
-        Map.Initialize();
-        Player.Initialize();
-        
+        Initialize();
+
         Console.WriteLine(Player.GetLocationDescription());
         
         bool isPlaying = true;
@@ -28,5 +27,12 @@ public static class Game
                 }
             }
         }
+    }
+
+    private static void Initialize()
+    {
+        Items.Initialize();
+        Map.Initialize();
+        Player.Initialize();
     }
 }
