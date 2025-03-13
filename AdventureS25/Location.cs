@@ -6,6 +6,7 @@ public class Location
     public string Description;
     
     public Dictionary<string, Location> Connections;
+    public List<Item> Items = new List<Item>();
     
     public Location(string nameInput, string descriptionInput)
     {
@@ -35,6 +36,19 @@ public class Location
 
     public string GetDescription()
     {
-        return name + "\n" + Description;
+        string fullDescription = name + "\n" + Description;
+
+        foreach (Item item in Items)
+        {
+            fullDescription += "\n" + item.GetLocationDescription();
+        }
+        
+        return fullDescription;
+    }
+
+    public void AddItem(Item item)
+    {
+        Debugger.Write("Adding item "+ item.Name + "to " + name);
+        Items.Add(item);
     }
 }

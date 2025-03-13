@@ -17,4 +17,10 @@ public class Item
     {
         return Name + " - " + Description + " - " + IsTakeable;
     }
+
+    public string GetLocationDescription()
+    {
+        string article = SemanticTools.CreateArticle(Name);
+        return "There is " + article + " " + Name + " here.";
+    }
 }

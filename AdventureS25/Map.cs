@@ -33,8 +33,13 @@ public static class Map
     {
         // find out which Location is named locationName
         Location location = GetLocationByName(locationName);
+        Item item = Items.GetItemByName(itemName);
         
         // add the item to the location
+        if (item != null && location != null)
+        {
+            location.AddItem(item);
+        }
     }
 
     private static Location GetLocationByName(string locationName)
