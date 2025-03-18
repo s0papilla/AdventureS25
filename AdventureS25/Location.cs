@@ -51,4 +51,22 @@ public class Location
         Debugger.Write("Adding item "+ item.Name + "to " + name);
         Items.Add(item);
     }
+
+    public bool HasItem(Item itemLookingFor)
+    {
+        foreach (Item item in Items)
+        {
+            if (item.Name == itemLookingFor.Name)
+            {
+                return true;
+            }
+        }
+        
+        return false;
+    }
+
+    public void RemoveItem(Item item)
+    {
+        Items.Remove(item);
+    }
 }
