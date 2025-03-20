@@ -12,8 +12,28 @@ public static class CommandHandler
             {"take", Take},
             {"inventory", ShowInventory},
             {"look", Look},
-            {"drop", Drop}
+            {"drop", Drop},
+            {"nouns", Nouns},
+            {"verbs", Verbs}
         };
+
+    private static void Verbs(Command command)
+    {
+        List<string> verbs = CommandValidator.GetVerbs();
+        foreach (string verb in verbs)
+        {
+            Console.WriteLine(verb);
+        }
+    }
+
+    private static void Nouns(Command command)
+    {
+        List<string> nouns = CommandValidator.GetNouns();
+        foreach (string noun in nouns)
+        {
+            Console.WriteLine(noun);
+        }
+    }
 
     public static void Handle(Command command)
     {

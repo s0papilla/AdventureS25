@@ -50,6 +50,7 @@ public static class Player
         {
             Inventory.Add(item);
             CurrentLocation.RemoveItem(item);
+            item.Pickup();
             Console.WriteLine("You take the " + command.Noun + ".");
         }
     }
@@ -91,8 +92,9 @@ public static class Player
         }
         else
         {
-            // remove it from inventory
-            // put it back in the world
+            Inventory.Remove(item);
+            CurrentLocation.AddItem(item);
+            Console.WriteLine("You drop the " + command.Noun + ".");
         }
 
     }

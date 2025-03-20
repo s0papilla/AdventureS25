@@ -8,7 +8,10 @@ public static class CommandValidator
         {"go", "eat", "take", "drop"};
     
     public static List<string> StandaloneVerbs = new List<string>
-        {"exit", "inventory", "look", "tron", "troff"};
+    {
+        "exit", "inventory", "look", "tron", "troff",
+        "nouns", "verbs"
+    };
     
     public static List<string> Nouns = new List<string>
     {
@@ -90,5 +93,24 @@ public static class CommandValidator
         }
         
         return false;
-    }   
+    }
+
+    public static void AddNoun(string noun)
+    {
+        noun = noun.ToLower();
+        if (!Nouns.Contains(noun))
+        {
+            Nouns.Add(noun);
+        }
+    }
+
+    public static List<string> GetNouns()
+    {
+        return Nouns;
+    }
+
+    public static List<string> GetVerbs()
+    {
+        return Verbs.Concat(StandaloneVerbs).ToList();
+    }
 }
