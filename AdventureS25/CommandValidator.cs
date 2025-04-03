@@ -10,7 +10,7 @@ public static class CommandValidator
     public static List<string> StandaloneVerbs = new List<string>
     {
         "exit", "inventory", "look", "tron", "troff",
-        "nouns", "verbs"
+        "nouns", "verbs", "fight", "explore", "talk"
     };
     
     public static List<string> Nouns = new List<string>

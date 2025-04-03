@@ -14,8 +14,26 @@ public static class CommandHandler
             {"look", Look},
             {"drop", Drop},
             {"nouns", Nouns},
-            {"verbs", Verbs}
+            {"verbs", Verbs},
+            {"fight", ChangeToFightState},
+            {"explore", ChangeToExploreState},
+            {"talk", ChangeToTalkState}
         };
+
+    private static void ChangeToTalkState(Command obj)
+    {
+        States.ChangeState(StateTypes.Talking);
+    }
+    
+    private static void ChangeToFightState(Command obj)
+    {
+        States.ChangeState(StateTypes.Fighting);
+    }
+    
+    private static void ChangeToExploreState(Command obj)
+    {
+        States.ChangeState(StateTypes.Exploring);
+    }
 
     private static void Verbs(Command command)
     {
