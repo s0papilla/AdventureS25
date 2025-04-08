@@ -4,6 +4,8 @@ public static class States
 {
     public static State CurrentState { get; set; }
     
+    public static StateTypes CurrentStateType { get; set; }
+    
     private static Dictionary<StateTypes, State> states = 
         new Dictionary<StateTypes, State>();
 
@@ -12,6 +14,8 @@ public static class States
         Add(StateTypes.Exploring);
         Add(StateTypes.Fighting);
         Add(StateTypes.Talking);
+        
+        ChangeState(StateTypes.Exploring);
     }
     
     public static void Add(StateTypes stateType)
@@ -27,6 +31,7 @@ public static class States
             return;
         }
         CurrentState = states[stateType];
+        CurrentStateType = stateType;
         
         Console.WriteLine("Changing to state " + stateType);
     }

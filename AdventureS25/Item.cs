@@ -17,7 +17,7 @@ public class Item
         Description = description;
         InitialDescription = initialDescription;
         IsTakeable = isTakeable;
-        CommandValidator.AddNoun(name);
+        ExplorationCommandValidator.AddNoun(name);
     }
 
     public string ToString()
