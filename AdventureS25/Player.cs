@@ -98,4 +98,12 @@ public static class Player
         }
 
     }
+
+    public static void Drink(Command command)
+    {
+        if (command.Noun == "beer")
+        {
+            Conditions.ChangeCondition(ConditionTypes.IsDrunk, true);
+        }
+    }
 }

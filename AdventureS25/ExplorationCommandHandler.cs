@@ -17,8 +17,14 @@ public static class ExplorationCommandHandler
             {"verbs", Verbs},
             {"fight", ChangeToFightState},
             {"explore", ChangeToExploreState},
-            {"talk", ChangeToTalkState}
+            {"talk", ChangeToTalkState},
+            {"drink", Drink}
         };
+
+    private static void Drink(Command command)
+    {
+        Player.Drink(command);
+    }
 
     private static void ChangeToTalkState(Command obj)
     {
