@@ -41,6 +41,19 @@ public static class Map
             location.AddItem(item);
         }
     }
+    
+    public static void RemoveItem(string itemName, string locationName)
+    {
+        // find out which Location is named locationName
+        Location location = GetLocationByName(locationName);
+        Item item = Items.GetItemByName(itemName);
+        
+        // remove the item to the location
+        if (item != null && location != null)
+        {
+            location.RemoveItem(item);
+        }
+    }
 
     private static Location GetLocationByName(string locationName)
     {

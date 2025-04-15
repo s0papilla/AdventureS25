@@ -103,7 +103,32 @@ public static class Player
     {
         if (command.Noun == "beer")
         {
+            Console.WriteLine("** drinking beer");
             Conditions.ChangeCondition(ConditionTypes.IsDrunk, true);
+            RemoveItemFromInventory("beer");
+            AddItemToInventory("beer-bottle");
         }
+    }
+
+    public static void AddItemToInventory(string itemName)
+    {
+        Item item = Items.GetItemByName(itemName);
+
+        if (item == null)
+        {
+            return;
+        }
+        
+        Inventory.Add(item);
+    }
+
+    public static void RemoveItemFromInventory(string itemName)
+    {
+        Item item = Items.GetItemByName(itemName);
+        if (item == null)
+        {
+            return;
+        }
+        Inventory.Remove(item);
     }
 }

@@ -26,6 +26,10 @@ public class Condition
     public void Deactivate()
     {
         IsActive = false;
+        foreach (Action action in methodsToCallOnDeactivate)
+        {
+            action.Invoke();
+        }
     }
 
     public void AddToActivateList(Action action)

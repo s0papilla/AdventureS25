@@ -18,8 +18,33 @@ public static class ExplorationCommandHandler
             {"fight", ChangeToFightState},
             {"explore", ChangeToExploreState},
             {"talk", ChangeToTalkState},
-            {"drink", Drink}
+            {"drink", Drink},
+            {"beerme", SpawnBeerInInventory},
+            {"unbeerme", UnSpawnBeerInInventory},
+            {"puke", Puke},
+            {"tidyup", TidyUp}
         };
+
+    private static void TidyUp(Command command)
+    {
+        Conditions.ChangeCondition(ConditionTypes.IsTidiedUp, true);
+    }
+
+    private static void Puke(Command obj)
+    {
+        Conditions.ChangeCondition(ConditionTypes.IsHungover, true);
+    }
+
+    private static void UnSpawnBeerInInventory(Command obj)
+    {
+        Conditions.ChangeCondition(ConditionTypes.IsBeerMed, false);
+
+    }
+
+    private static void SpawnBeerInInventory(Command command)
+    {
+        Conditions.ChangeCondition(ConditionTypes.IsBeerMed, true);
+    }
 
     private static void Drink(Command command)
     {

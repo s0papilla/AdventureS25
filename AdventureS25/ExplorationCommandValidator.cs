@@ -8,7 +8,8 @@ public static class ExplorationCommandValidator
     public static List<string> StandaloneVerbs = new List<string>
     {
         "exit", "inventory", "look", "tron", "troff",
-        "nouns", "verbs", "fight", "explore", "talk"
+        "nouns", "verbs", "fight", "explore", "talk", "beerme", 
+        "unbeerme", "puke", "tidyup"
     };
     
     public static List<string> Nouns = new List<string>

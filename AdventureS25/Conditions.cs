@@ -10,6 +10,21 @@ public static class Conditions
         Condition isDrunk = new Condition(ConditionTypes.IsDrunk);
         isDrunk.AddToActivateList(ConditionActions.WriteOutput("Hic!"));
         Add(isDrunk);
+
+        Condition beerMe = new Condition(ConditionTypes.IsBeerMed);
+        beerMe.AddToActivateList(ConditionActions.AddItemToInventory("beer"));
+        beerMe.AddToDeactivateList(ConditionActions.RemoveItemFromInventory("beer"));
+        Add(beerMe);
+
+        Condition isHungover = new Condition(ConditionTypes.IsHungover);
+        isHungover.AddToActivateList(ConditionActions.AddItemToLocation("puke", 
+            "Entrance"));
+        Add(isHungover);
+
+        Condition isTidyedUp = new Condition(ConditionTypes.IsTidiedUp);
+        isTidyedUp.AddToActivateList(ConditionActions.RemoveItemFromLocation("puke",
+            "Entrance"));
+        Add(isTidyedUp);
     }
 
     public static void ChangeCondition(ConditionTypes conditionType,
