@@ -22,8 +22,26 @@ public static class ExplorationCommandHandler
             {"beerme", SpawnBeerInInventory},
             {"unbeerme", UnSpawnBeerInInventory},
             {"puke", Puke},
-            {"tidyup", TidyUp}
+            {"tidyup", TidyUp},
+            {"teleport", Teleport},
+            {"connect", Connect},
+            {"disconnect", Disconnect}
         };
+
+    private static void Disconnect(Command obj)
+    {
+        Conditions.ChangeCondition(ConditionTypes.IsRemovedConnection, true);
+    }
+
+    private static void Connect(Command obj)
+    {
+        Conditions.ChangeCondition(ConditionTypes.IsCreatedConnection, true);
+    }
+
+    private static void Teleport(Command obj)
+    {
+        Conditions.ChangeCondition(ConditionTypes.IsTeleported, true);
+    }   
 
     private static void TidyUp(Command command)
     {
@@ -35,7 +53,7 @@ public static class ExplorationCommandHandler
         Conditions.ChangeCondition(ConditionTypes.IsHungover, true);
     }
 
-    private static void UnSpawnBeerInInventory(Command obj)
+    private static void UnSpawnBeerInInventory(Command command)
     {
         Conditions.ChangeCondition(ConditionTypes.IsBeerMed, false);
 

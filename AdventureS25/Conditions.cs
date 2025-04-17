@@ -1,4 +1,6 @@
-﻿namespace AdventureS25;
+﻿using System.Net.Sockets;
+
+namespace AdventureS25;
 
 public static class Conditions
 {
@@ -25,8 +27,26 @@ public static class Conditions
         isTidyedUp.AddToActivateList(ConditionActions.RemoveItemFromLocation("puke",
             "Entrance"));
         Add(isTidyedUp);
-    }
+        
+        Condition isTeleported = new Condition(ConditionTypes.IsTeleported);
+        isTeleported.AddToActivateList(ConditionActions.MovePlayerToLocation("Throne Room"));
+        Add(isTeleported);
 
+        Condition isConnectedRooms = new Condition(ConditionTypes.IsCreatedConnection);
+        isConnectedRooms.AddToActivateList(ConditionActions.WriteOutput("An opening into a cave has magically appeared."));
+        isConnectedRooms.AddToActivateList(ConditionActions.AddMapConnection("Entrance", 
+            "south", "Cave"));
+        isConnectedRooms.AddToActivateList(ConditionActions.AddMapConnection("Cave", 
+            "north", "Entrance"));
+        Add(isConnectedRooms);
+
+        Condition isDisconnectedRooms = new Condition(ConditionTypes.IsRemovedConnection);
+        isDisconnectedRooms.AddToActivateList(ConditionActions.WriteOutput("A convenient pile of rocks blocks the passage between the entrance and the throne room."));
+        isDisconnectedRooms.AddToActivateList(ConditionActions.RemoveMapConnection("Entrance", "north"));
+        isDisconnectedRooms.AddToActivateList(ConditionActions.RemoveMapConnection("Throne Room", "south"));
+        Add(isDisconnectedRooms);
+    }   
+    
     public static void ChangeCondition(ConditionTypes conditionType,
         bool isSettingToTrue)
     {

@@ -19,6 +19,9 @@ public static class Map
         Location throne = new Location("Throne Room", 
             "There is a big ass throne here.");
         nameToLocation.Add("Throne Room", throne);
+
+        Location cave = new Location("Cave", "It's a cave.  It's dark.  Dave lives in the cave");
+        nameToLocation.Add("Cave", cave);
         
         entrance.AddConnection("east", storage);
         storage.AddConnection("west", entrance);
@@ -55,7 +58,7 @@ public static class Map
         }
     }
 
-    private static Location GetLocationByName(string locationName)
+    public static Location GetLocationByName(string locationName)
     {
         if (nameToLocation.ContainsKey(locationName))
         {
@@ -65,5 +68,38 @@ public static class Map
         {
             return null;
         }
+    }
+
+    public static void AddConnection(string startLocationName, string direction, 
+        string endLocationName)
+    {
+        // get the location objects based on the names
+        Location start = GetLocationByName(startLocationName);
+        Location end = GetLocationByName(endLocationName);
+        
+        // if the locations don't exist
+        if (start == null || end == null)
+        {
+            Console.WriteLine("Tried to create a connection between unknown locations: " +
+                              startLocationName + " and " + endLocationName);
+            return;
+        }
+            
+        // create the connection
+        start.AddConnection(direction, end);
+    }
+
+    public static void RemoveConnection(string startLocationName, string direction)
+    {
+        Location start = GetLocationByName(startLocationName);
+        
+        if (start == null)
+        {
+            Console.WriteLine("Tried to remove a connection from an unknown location: " +
+                              startLocationName);
+            return;
+        }
+
+        start.RemoveConnection(direction);
     }
 }

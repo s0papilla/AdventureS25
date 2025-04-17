@@ -131,4 +131,23 @@ public static class Player
         }
         Inventory.Remove(item);
     }
+
+    public static void MoveToLocation(string locationName)
+    {
+        // look up the location object based on the name
+        Location newLocation = Map.GetLocationByName(locationName);
+        
+        // if there's no location with that name
+        if (newLocation == null)
+        {
+            Console.WriteLine("Trying to move to unknown location: " + locationName + ".");
+            return;
+        }
+            
+        // set our current location to the new location
+        CurrentLocation = newLocation;
+        
+        // print out a description of the location
+        Look();
+    }
 }

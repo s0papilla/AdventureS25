@@ -31,7 +31,24 @@ public static class ConditionActions
         return () => Map.RemoveItem(itemName, locationName);
     }
     
+    // move player to location
+    public static Action MovePlayerToLocation(string locationName)
+    {
+        return () => Player.MoveToLocation(locationName);
+    }
+    
+    // create a map connection
+    public static Action AddMapConnection(string startLocationName, string direction,
+        string endLocationName)
+    {
+        return () => Map.AddConnection(startLocationName, direction, endLocationName);
+    }
+    
     // record things in a journal
+    public static Action RemoveMapConnection(string startLocationName, string direction)
+    {
+        return () => Map.RemoveConnection(startLocationName, direction);
+    }
     
     // spawning an npc/mob
     

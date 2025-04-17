@@ -8,4 +8,7 @@ public enum ConditionTypes
     IsBeerMed,
     IsHungover,
     IsTidiedUp,
+    IsTeleported,
+    IsCreatedConnection,
+    IsRemovedConnection,
 }
