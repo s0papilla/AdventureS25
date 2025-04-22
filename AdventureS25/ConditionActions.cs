@@ -44,7 +44,7 @@ public static class ConditionActions
         return () => Map.AddConnection(startLocationName, direction, endLocationName);
     }
     
-    // record things in a journal
+    // remove a map connection
     public static Action RemoveMapConnection(string startLocationName, string direction)
     {
         return () => Map.RemoveConnection(startLocationName, direction);
@@ -55,8 +55,6 @@ public static class ConditionActions
     // despawn npc/mob
     
     // change our game state
-    
-    // teleport us or item
     
     // win game
     

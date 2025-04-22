@@ -1,4 +1,6 @@
-﻿namespace AdventureS25;
+﻿using System.Text.Json;
+
+namespace AdventureS25;
 
 public static class Map
 {
@@ -8,30 +10,57 @@ public static class Map
     
     public static void Initialize()
     {
-        Location entrance = new Location("Entrance", 
-            "This is the entrance room. Everything starts here.");
-        nameToLocation.Add("Entrance", entrance);
+        string path = Path.Combine(Environment.CurrentDirectory, "Map.json");
+        string rawText = File.ReadAllText(path);
         
-        Location storage = new Location("Storage", 
-            "You are in a small storage room. There are lots of things.");
-        nameToLocation.Add("Storage", storage);
-        
-        Location throne = new Location("Throne Room", 
-            "There is a big ass throne here.");
-        nameToLocation.Add("Throne Room", throne);
+        MapJsonData data = JsonSerializer.Deserialize<MapJsonData>(rawText);
 
-        Location cave = new Location("Cave", "It's a cave.  It's dark.  Dave lives in the cave");
-        nameToLocation.Add("Cave", cave);
+        // make all the locations
+        Dictionary<string, Location> locations = new Dictionary<string, Location>();
+        foreach (LocationJsonData location in data.Locations)
+        {
+            Location newLocation = AddLocation(location.Name, location.Description);
+            locations.Add(location.Name, newLocation);
+        }
         
-        entrance.AddConnection("east", storage);
-        storage.AddConnection("west", entrance);
-        throne.AddConnection("south", entrance);
-        entrance.AddConnection("north", throne);
+        // setup all the connections
+        foreach (LocationJsonData location in data.Locations)
+        {
+            Location currentLocation = locations[location.Name];
+            foreach (KeyValuePair<string,string> connection in location.Connections)
+            {
+                string direction = connection.Key.ToLower();
+                string destination = connection.Value;
 
-        StartLocation = entrance;
+                if (nameToLocation.ContainsKey(destination))
+                {
+                    Location destinationLocation = nameToLocation[destination];
+                    currentLocation.AddConnection(direction, destinationLocation);
+                }
+                else
+                {
+                    Console.WriteLine("Unknown destination: " + destination);
+                }
+            }
+        }
+
+        if (locations.TryGetValue(data.StartLocation, out Location startLocation))
+        {
+            StartLocation = startLocation;
+        }
+        else
+        {
+            Console.WriteLine("StartLocation not found in Map.json");
+        }
+    }
+
+    private static Location AddLocation(string locationName, string locationDescription)
+    {
+        Location newLocation = new Location(locationName, locationDescription);
+        nameToLocation.Add(locationName, newLocation);
+        return newLocation;
     }
     
-
     public static void AddItem(string itemName, string locationName)
     {
         // find out which Location is named locationName
