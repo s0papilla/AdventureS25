@@ -55,13 +55,13 @@ public static class Conditions
             return;
         }
         
-        // if setting to true AND we're currently false
+        // if setting to true AND we're currently false - we can set to true
         if (isSettingToTrue && IsFalse(conditionType))
         {
             Condition condition = conditions[conditionType];
             condition.Activate();
         }
-        // if not setting to true and we're current true
+        // if not setting to true and we're current true - we can set to false
         else if (!isSettingToTrue && IsTrue(conditionType))
         {
             Condition condition = conditions[conditionType];

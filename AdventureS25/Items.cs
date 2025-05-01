@@ -1,4 +1,6 @@
-﻿namespace AdventureS25;
+﻿using System.Text.Json;
+
+namespace AdventureS25;
 
 public static class Items
 {
@@ -7,47 +9,27 @@ public static class Items
     
     public static void Initialize()
     {
-        Item sword = new Item("sword",
-            "long sword", 
-            "There is a long sword stuck in a rock here.");
-        nameToItem.Add("sword", sword);
+        string path = Path.Combine(Environment.CurrentDirectory, "Items.json");
+        string rawText = File.ReadAllText(path);
         
-        Item donut = new Item("donut",
-            "A giant concrete donut that you can't take", 
-            "A giant concrete donut rests on the floor.",
-            false);
-        nameToItem.Add("donut", donut);
-        
-        Item beer = new Item("beer",
-            "beer's beer",
-            "There is a beer's beer in a beer here.");
-        nameToItem.Add("beer", beer);
-        
-        Item beerBottle = new Item("beer-bottle", "An empty beer bottle",
-            "There is an empty beer bottle in a beer here.");
-        nameToItem.Add("beer-bottle", beerBottle);
-        
-        Item apple = new Item("apple",
-            "a shiny rotten apple",
-            "A shiny rotten apple sits on the floor.");
-        nameToItem.Add("apple", apple);
-        
-        Item spear = new Item("spear",
-            "a shiny rotten spear",
-            "A shiny rotten spear sits is propped in the corner.");
-        nameToItem.Add("spear", spear);
+        ItemsJsonData data = JsonSerializer.Deserialize<ItemsJsonData>(rawText);
 
-        Item puke = new Item("puke",
-            "some puke",
-            "A disgusting pile of puke.");
-        nameToItem.Add("puke", puke);
-        
-        // tell the map to add the item at a specific location
-        Map.AddItem(sword.Name, "Entrance");
-        Map.AddItem(apple.Name, "Entrance");
-        Map.AddItem(spear.Name, "Entrance");
-        Map.AddItem(donut.Name, "Storage");
-        Map.AddItem(beer.Name, "Throne Room");
+        foreach (ItemJsonData item in data.Items)
+        {
+            Item newItem = CreateItem(item.Name, item.Description,
+                item.InitialDescription, item.IsTakeable);
+            Map.AddItem(newItem.Name, item.Location);
+        }
+    }
+
+    public static Item CreateItem(string name, string description,
+        string initialDescription, bool isTakeable)
+    {
+        Item newItem = new Item(name,
+            description, 
+            initialDescription, isTakeable);
+        nameToItem.Add(name, newItem);
+        return newItem;
     }
 
     public static Item GetItemByName(string itemName)

@@ -49,14 +49,4 @@ public static class ConditionActions
     {
         return () => Map.RemoveConnection(startLocationName, direction);
     }
-    
-    // spawning an npc/mob
-    
-    // despawn npc/mob
-    
-    // change our game state
-    
-    // win game
-    
-    // game losing
 }
