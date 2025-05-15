@@ -1,25 +1,25 @@
 ﻿{
   "Items": [
     {
-      "Name": "sword",
-      "Description": "long sword",
-      "InitialDescription": "There is a long sword stuck in a rock here.",
-      "IsTakeable": true,
-      "Location": "Entrance"
+      "Name": "Your Desk",
+      "Description": "Just your desk... same as always",
+      "InitialDescription": "A dusty desk with your name placard that is hardly legible sits in the corner.",
+      "IsTakeable": false,
+      "Location": "The Office"
     },
     {
-      "Name": "donut",
-      "Description": "A giant concrete donut that you can't take",
-      "InitialDescription": "A giant concrete donut rests on the floor.",
-      "IsTakeable": false,
-      "Location": "Storage"
+      "Name": "flashlight",
+      "Description": "A reliable flashlight",
+      "InitialDescription": "An old reliable flashlight is stashed in the drawer of your desk.",
+      "IsTakeable": true,
+      "Location": "The Office"
     },
     {
       "Name": "beer",
       "Description": "beer's beer",
       "InitialDescription": "There is a beer's beer in a beer here.",
       "IsTakeable": true,
-      "Location": "Throne Room"
+      "Location": "The Office"
     }
   ]
 }

@@ -1,45 +1,56 @@
 ﻿{
   "Locations": [
     {
-      "Name": "Entrance",
-      "Description": "This is the entrance room. Passages lead north, east, and west.",
+      "Name": "Graveyard Entrance",
+      "Description": "The archway to enter the graveyard rests behind you",
       "Connections": {
-        "east" : "Storage",
-        "north": "Throne Room",
-        "west" : "Pool"
+        "north": "The Office"
       }
     },
     
     {
-      "Name": "Storage",
-      "Description": "You are in a small storage room. There is an exit to the west.",
+      "Name": "The Office",
+      "Description": "You are in your office.",
       "Connections": {
-        "west" : "Entrance"
+        "south" : "Graveyard Entrance",
+        "north" : "Graveyard Grounds"
       }    
     },
 
     {
-      "Name": "Throne Room",
-      "Description": "There is a big ass throne here. An opening lies to the south.",
+      "Name": "The Mausoleum",
+      "Description": "You are in the Mausoleum. There's a lot of rich dead people here",
       "Connections": {
-        "south" : "Entrance"
+        "south" : "Graveyard Grounds"
       }
     },
 
     {
-      "Name": "Pool",
-      "Description": "It's very very wet here.  The entrance room is to the east.",
+      "Name": "West-Side Lot",
+      "Description": "You have entered Graveyard Lot A. It is quiet ... too quiet. Most of the headstones here are simple and crumbling, many unmarked. It feels like this is where the cemetery puts those it wants to forget. A few scattered offerings have long since withered away.",
       "Connections": {
-        "east" : "Entrance"
+        "east" : "Graveyard Grounds"
       }
     },
 
     {
-      "Name": "Cave",
-      "Description": "It's a dark cave.",
+      "Name": "East-Side Lot",
+      "Description": "You have entered Graveyard Lot B.The graves are newer, and many are decorated with trinkets, wreaths, and faded cards. It feels like the dead here haven’t been forgotten, not yet...",
       "Connections": {
+        "west" : "Graveyard Grounds"
+      }
+    },
+    
+    {
+      "Name": "Graveyard Grounds",
+      "Description": "The brisk air outside makes you feel cold.",
+      "Connections": {
+        "west": "West-Side Lot",
+        "east": "East-Side Lot",
+        "north": "The Mausoleum",
+        "south": "The Office"
       }
     }
   ],
-  "StartLocation": "Entrance"
+  "StartLocation": "Graveyard Entrance"
 }

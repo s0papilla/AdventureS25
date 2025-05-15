@@ -15,6 +15,8 @@ public class Location
         Connections = new Dictionary<string, Location>();
     }
 
+    public string Name { get; }
+
     public void AddConnection(string direction, Location location)
     {
         Connections.Add(direction, location);

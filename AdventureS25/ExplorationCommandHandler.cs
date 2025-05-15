@@ -5,27 +5,27 @@ public static class ExplorationCommandHandler
     private static Dictionary<string, Action<Command>> commandMap =
         new Dictionary<string, Action<Command>>()
         {
-            {"eat", Eat},
-            {"go", Move},
-            {"tron", Tron},
-            {"troff", Troff},
-            {"take", Take},
-            {"inventory", ShowInventory},
-            {"look", Look},
-            {"drop", Drop},
-            {"nouns", Nouns},
-            {"verbs", Verbs},
-            {"fight", ChangeToFightState},
-            {"explore", ChangeToExploreState},
-            {"talk", ChangeToTalkState},
-            {"drink", Drink},
-            {"beerme", SpawnBeerInInventory},
-            {"unbeerme", UnSpawnBeerInInventory},
-            {"puke", Puke},
-            {"tidyup", TidyUp},
-            {"teleport", Teleport},
-            {"connect", Connect},
-            {"disconnect", Disconnect}
+            { "eat", Eat },
+            { "go", Move },
+            { "tron", Tron },
+            { "troff", Troff },
+            { "take", Take },
+            { "inventory", ShowInventory },
+            { "look", Look },
+            { "drop", Drop },
+            { "nouns", Nouns },
+            { "verbs", Verbs },
+            { "fight", ChangeToFightState },
+            { "explore", ChangeToExploreState },
+            { "talk", ChangeToTalkState },
+            { "drink", Drink },
+            { "beerme", SpawnBeerInInventory },
+            { "unbeerme", UnSpawnBeerInInventory },
+            { "puke", Puke },
+            { "tidyup", TidyUp },
+            { "teleport", Teleport },
+            { "connect", Connect },
+            { "disconnect", Disconnect }
         };
 
     private static void Disconnect(Command obj)
@@ -41,7 +41,7 @@ public static class ExplorationCommandHandler
     private static void Teleport(Command obj)
     {
         Conditions.ChangeCondition(ConditionTypes.IsTeleported, true);
-    }   
+    }
 
     private static void TidyUp(Command command)
     {
@@ -73,12 +73,12 @@ public static class ExplorationCommandHandler
     {
         States.ChangeState(StateTypes.Talking);
     }
-    
+
     private static void ChangeToFightState(Command obj)
     {
         States.ChangeState(StateTypes.Fighting);
     }
-    
+
     private static void ChangeToExploreState(Command obj)
     {
         States.ChangeState(StateTypes.Exploring);
@@ -114,12 +114,12 @@ public static class ExplorationCommandHandler
             Console.WriteLine("I don't know how to do that.");
         }
     }
-    
+
     private static void Drop(Command command)
     {
         Player.Drop(command);
     }
-    
+
     private static void Look(Command command)
     {
         Player.Look();
@@ -129,7 +129,7 @@ public static class ExplorationCommandHandler
     {
         Player.ShowInventory();
     }
-    
+
     private static void Take(Command command)
     {
         Player.Take(command);
