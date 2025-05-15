@@ -16,10 +16,53 @@
     },
     {
       "Name": "beer",
-      "Description": "beer's beer",
-      "InitialDescription": "There is a beer's beer in a beer here.",
+      "Description": "an ice-cold brewski",
+      "InitialDescription": "There's some ice cold beers sitting in the office fridge.",
       "IsTakeable": true,
       "Location": "The Office"
+    },
+    {
+      "Name": "right arm",
+      "Description": "right arm on body",
+      "InitialDescription": "There is an arm resting gently beside a polished grave marker. The fingers are clean, almost delicate, like someone tended to it.",
+      "IsTakeable": true,
+      "Location": "East-Side Lot"
+    },
+    {
+      "Name": "right leg",
+      "Description": "right leg on body",
+      "InitialDescription": "You find a leg tucked near a marble crypt, laces tied neatly, as if laid to rest with care.",
+      "IsTakeable": true,
+      "Location": "East-Side Lot"
+    },
+    {
+      "Name": "head",
+      "Description": "a small and dried up head you can take ",
+      "InitialDescription": "Resting gently on a cracked marble pedestal, a head sits. It bears a kind expression. Its features are soft, and a faint, friendly smile still lingers, as if it’s been expecting you.",
+      "IsTakeable": true,
+      "Location": "The Mausoleum"
+    },
+    {
+      "Name": "torso",
+      "Description": "muscular body ",
+      "InitialDescription": "Lying in a stone coffin lined with gold-threaded cloth, there is a torso. Once buried with honor, now exposed to the dust. A noble decay clings to it, fragile but commanding.",
+      "IsTakeable": true,
+      "Location": "The Mausoleum"
+
+    },
+    {
+      "Name": "left arm",
+      "Description": "left arm on body",
+      "InitialDescription": "You see an arm. The arm is stiff, fingers curled as if still reaching for something. Thorns cling to the skin like the earth tried to keep it.",
+      "IsTakeable": true,
+      "Location": "West-Side Lot"
+    },
+    {
+      "Name": "left leg",
+      "Description": "left arm on body",
+      "InitialDescription": "buried under a mat of dead leaves and roots, there is a leg. You nearly step on it before realizing what it is.",
+      "IsTakeable": true,
+      "Location": "West-Side Lot"
     }
   ]
 }

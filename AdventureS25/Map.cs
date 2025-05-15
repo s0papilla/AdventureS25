@@ -19,7 +19,7 @@ public static class Map
         Dictionary<string, Location> locations = new Dictionary<string, Location>();
         foreach (LocationJsonData location in data.Locations)
         {
-            Location newLocation = AddLocation(location.Name, location.Description);
+            Location newLocation = AddLocation(location.Name, location.Description, location.InitialDescription);
             locations.Add(location.Name, newLocation);
         }
         
@@ -54,9 +54,9 @@ public static class Map
         }
     }
 
-    private static Location AddLocation(string locationName, string locationDescription)
+    private static Location AddLocation(string locationName, string locationDescription, string initialDescription)
     {
-        Location newLocation = new Location(locationName, locationDescription);
+        Location newLocation = new Location(locationName, locationDescription, initialDescription);
         nameToLocation.Add(locationName, newLocation);
         return newLocation;
     }

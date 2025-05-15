@@ -74,7 +74,7 @@ public static class Player
 
     public static void Look()
     {
-        Console.WriteLine(CurrentLocation.GetDescription());
+        Console.WriteLine(CurrentLocation.GetDescriptionWithItems());
     }
 
     public static void Drop(Command command)

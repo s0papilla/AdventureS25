@@ -4,15 +4,19 @@ public class Location
 {
     private string name;
     public string Description;
+    public string InitialDescription;
     
     public Dictionary<string, Location> Connections;
     public List<Item> Items = new List<Item>();
     
-    public Location(string nameInput, string descriptionInput)
+    private bool hasPlayerBeenHere = false;
+    
+    public Location(string nameInput, string descriptionInput, string initialDescriptionInput)
     {
         name = nameInput;
         Description = descriptionInput;
         Connections = new Dictionary<string, Location>();
+        InitialDescription = initialDescriptionInput;
     }
 
     public string Name { get; }
@@ -38,12 +42,41 @@ public class Location
 
     public string GetDescription()
     {
-        string fullDescription = name + "\n" + Description;
+        string fullDescription = name + "\n";
+
+        if (hasPlayerBeenHere)
+        {
+            fullDescription += Description;
+        }
+        else
+        {
+            fullDescription += InitialDescription;
+        }
+        
+        hasPlayerBeenHere = true;
+        
+        return fullDescription;
+    }
+    
+    public string GetDescriptionWithItems()
+    {
+        string fullDescription = name + "\n";
+
+        if (hasPlayerBeenHere)
+        {
+            fullDescription += Description;
+        }
+        else
+        {
+            fullDescription += InitialDescription;
+        }
 
         foreach (Item item in Items)
         {
             fullDescription += "\n" + item.GetLocationDescription();
         }
+
+        hasPlayerBeenHere = true;
         
         return fullDescription;
     }

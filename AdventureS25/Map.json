@@ -2,7 +2,8 @@
   "Locations": [
     {
       "Name": "Graveyard Entrance",
-      "Description": "The archway to enter the graveyard rests behind you",
+      "InitialDescription": "The archway to enter the graveyard rests behind you",
+      "Description": "You are standing at the graveyard archway",
       "Connections": {
         "north": "The Office"
       }
@@ -10,6 +11,7 @@
     
     {
       "Name": "The Office",
+      "InitialDescription": "You are in your office. You spend most of your time here",
       "Description": "You are in your office.",
       "Connections": {
         "south" : "Graveyard Entrance",
@@ -19,7 +21,8 @@
 
     {
       "Name": "The Mausoleum",
-      "Description": "You are in the Mausoleum. There's a lot of rich dead people here",
+      "InitialDescription": "You are in the Mausoleum. There's a lot of rich dead people here",
+      "Description": "You are in the Mausoleum",
       "Connections": {
         "south" : "Graveyard Grounds"
       }
@@ -27,7 +30,8 @@
 
     {
       "Name": "West-Side Lot",
-      "Description": "You have entered Graveyard Lot A. It is quiet ... too quiet. Most of the headstones here are simple and crumbling, many unmarked. It feels like this is where the cemetery puts those it wants to forget. A few scattered offerings have long since withered away.",
+      "InitialDescription": "You have entered Graveyard Lot A. It is quiet ... too quiet. Most of the headstones here are simple and crumbling, many unmarked. It feels like this is where the cemetery puts those it wants to forget. A few scattered offerings have long since withered away.",
+      "Description": "You are at the west-side lot",
       "Connections": {
         "east" : "Graveyard Grounds"
       }
@@ -35,7 +39,8 @@
 
     {
       "Name": "East-Side Lot",
-      "Description": "You have entered Graveyard Lot B.The graves are newer, and many are decorated with trinkets, wreaths, and faded cards. It feels like the dead here haven’t been forgotten, not yet...",
+      "InitialDescription": "You have entered Graveyard Lot B.The graves are newer, and many are decorated with trinkets, wreaths, and faded cards. It feels like the dead here haven’t been forgotten, not yet...",
+      "Description": "You are at the east-side lot",
       "Connections": {
         "west" : "Graveyard Grounds"
       }
@@ -43,12 +48,14 @@
     
     {
       "Name": "Graveyard Grounds",
-      "Description": "The brisk air outside makes you feel cold.",
+      "Description": "The brisk air outside makes you feel cold. You are outside on the graveyard grounds",
+      "InitialDescription": "You are outside on the graveyard grounds",
       "Connections": {
         "west": "West-Side Lot",
         "east": "East-Side Lot",
         "north": "The Mausoleum",
         "south": "The Office"
+                
       }
     }
   ],
