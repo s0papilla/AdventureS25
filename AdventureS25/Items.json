@@ -22,16 +22,16 @@
       "Location": "The Office"
     },
     {
-      "Name": "right arm",
+      "Name": "rightarm",
       "Description": "right arm on body",
-      "InitialDescription": "There is an arm resting gently beside a polished grave marker. The fingers are clean, almost delicate, like someone tended to it.",
+      "InitialDescription": "There is right arm resting gently beside a polished grave marker. The fingers are clean, almost delicate, like someone tended to it.",
       "IsTakeable": true,
       "Location": "East-Side Lot"
     },
     {
-      "Name": "right leg",
+      "Name": "rightleg",
       "Description": "right leg on body",
-      "InitialDescription": "You find a leg tucked near a marble crypt, laces tied neatly, as if laid to rest with care.",
+      "InitialDescription": "You find a right leg tucked near a marble crypt, laces tied neatly, as if laid to rest with care.",
       "IsTakeable": true,
       "Location": "East-Side Lot"
     },
@@ -48,21 +48,27 @@
       "InitialDescription": "Lying in a stone coffin lined with gold-threaded cloth, there is a torso. Once buried with honor, now exposed to the dust. A noble decay clings to it, fragile but commanding.",
       "IsTakeable": true,
       "Location": "The Mausoleum"
-
     },
     {
-      "Name": "left arm",
+      "Name": "leftarm",
       "Description": "left arm on body",
-      "InitialDescription": "You see an arm. The arm is stiff, fingers curled as if still reaching for something. Thorns cling to the skin like the earth tried to keep it.",
+      "InitialDescription": "You see a left arm. The arm is stiff, fingers curled as if still reaching for something. Thorns cling to the skin like the earth tried to keep it.",
       "IsTakeable": true,
       "Location": "West-Side Lot"
     },
     {
-      "Name": "left leg",
+      "Name": "leftleg",
       "Description": "left arm on body",
-      "InitialDescription": "buried under a mat of dead leaves and roots, there is a leg. You nearly step on it before realizing what it is.",
+      "InitialDescription": "Buried under a mat of dead leaves and roots, there is a left leg. You nearly step on it before realizing what it is.",
       "IsTakeable": true,
       "Location": "West-Side Lot"
+    },
+    {
+      "Name": "map",
+      "Description": "a map",
+      "InitialDescription": "Pinned to the wall is a slightly faded map of the graveyard. You might want to examine it so that you dont get lost ",
+      "IsTakeable": false,
+      "Location": "The Office"
     }
   ]
 }

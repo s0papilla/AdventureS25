@@ -13,7 +13,7 @@ public class Location
     
     public Location(string nameInput, string descriptionInput, string initialDescriptionInput)
     {
-        name = nameInput;
+        Name = nameInput;
         Description = descriptionInput;
         Connections = new Dictionary<string, Location>();
         InitialDescription = initialDescriptionInput;

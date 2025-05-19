@@ -25,8 +25,14 @@ public static class ExplorationCommandHandler
             { "tidyup", TidyUp },
             { "teleport", Teleport },
             { "connect", Connect },
+            { "examine", Examine },
             { "disconnect", Disconnect }
         };
+
+    private static void Examine(Command obj)
+    {
+        Player.Examine(obj.Noun);
+    }
 
     private static void Disconnect(Command obj)
     {
@@ -154,4 +160,5 @@ public static class ExplorationCommandHandler
     {
         Player.Move(command);
     }
+    
 }
