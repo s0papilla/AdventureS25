@@ -32,23 +32,24 @@ public static class Player
                     && Inventory.Contains(Items.GetItemByName("leftarm")))
                 {
                     TextEffects.TypeLine("The heavy patter of rain begins, growing louder with each passing second." +
-                                         " Thunder rumbles deep in the distance, shaking the windows of the office. " +
-                                         "The dim light flickers as a cold wind howls through the cracked door." +
-                                         "You stand in the center of the room, the eerie glow of the storm casting jagged shadows across the walls. " +
-                                         "Before you lies the collection of body parts ... the missing pieces you hunted for, each waiting to become something more." +
-                                         "With deliberate hands, you clear the cluttered desk. Papers scatter to the floor." +
-                                         "Your heartbeat pounds in your ears as you pick up the torso ... placing it firmly on the dusty desk." +
-                                         "One by one, the limbs follow: the right arm, left arm, right leg, left leg. Each piece clicks into place with an unnerving sound. " +
-                                         "The room seems to grow colder, the storm’s fury swelling beyond the walls." +
-                                         "Finally, your trembling hands reach for the head. As it settles atop the shoulders, the storm outside only gets louder. Lightning flashes violently, illuminating the room for a brief, blinding moment." +
-                                         "Then... silence...." +
-                                         "The creation before you stirs, as if waking from a long, haunted sleep. The shadows retreat, and a new presence fills the office — your Franken-Friend greets you with a soft smile as it has come to life.");
+                                         " Thunder rumbles deep in the distance, shaking the windows of the office." +
+                                         " The fluorescent light flickers as a cold wind howls through the cracks of the old windows." +
+                                         " You stand in the center of the office, the flashes of lightening casting jagged shadows across the walls." +
+                                         " Before you lies the collection of body parts ... the missing pieces you hunted for, each waiting to become something more." +
+                                         " With frantic hands, you clear the cluttered desk. Papers scatter to the floor." +
+                                         " Your heartbeat pounds in your ears as you pick up the torso ... placing it firmly on the dusty desk." +
+                                         " One by one, the limbs follow: the right arm, left arm, right leg, left leg. Each piece clicks into place with an unnerving sound." +
+                                         " The room seems to grow colder, the storm’s fury swelling beyond the walls." +
+                                         " Finally, your trembling hands reach for the head. As it settles atop the shoulders, the storm outside only gets louder. Lightning flashes violently, illuminating the room for a brief, blinding moment." +
+                                         " Then... silence...." +
+                                         " The creation before you stirs, as if waking from a long, haunted sleep. The shadows retreat, and a new presence fills the office — your Franken-Friend greets you with a soft smile as it has come to life.");
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("You will no longer be lonely.");
                     Console.ResetColor();
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("The End :)");
                     Console.ResetColor();
+                    Console.WriteLine("                .---.\n           '-.  |   |  .-'         \n             ___|   |___          \n        -=  [           ]  =-    \n            `---.   .---'         \n         __||__ |   | __||__      \n         '-..-' |   | '-..-'   \n           ||   |   |   ||     \n           ||_.-|   |-,_||     \n         .-\"`   `\"`'`   `\"-.   \n       .'                   '.");
                     Game.isPlaying = false;
                     return;
                 } 
@@ -56,7 +57,7 @@ public static class Player
                 if (Inventory.Contains(Items.GetItemByName("flashlight")))
                 {
                     
-                    Console.WriteLine("Your loneliness gnaws at you. You are too lonely to go back to work..."); 
+                    Console.WriteLine("Working alone feels unbearable. You need something more before returning..."); 
                 }
 
             }
